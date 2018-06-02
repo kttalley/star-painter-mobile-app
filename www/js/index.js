@@ -16,6 +16,45 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+document.addEventListener('deviceready', onDeviceReady, false);
+
+function onDeviceReady() {
+	document.querySelector("#playMp3").addEventListener("touchend", playMP3, false);
+	document.querySelector("#playMp3Mild").addEventListener("touchend", playMp3Mild, false);
+	document.querySelector("#playRemoteFile").addEventListener("touchend", playRemoteFile, false);
+	
+};
+
+function playMP3() {
+    var mp3URL = getMediaURL("img/sun-rap.mp3");
+    var media = new Media(mp3URL, null, mediaError);
+	media.setVolume(1.0);
+    media.play();
+}
+
+function playMp3Mild() {
+    var mp3URL = getMediaURL("img/sun-rap.mp3");
+    var media = new Media(mp3URL, null, mediaError);
+	media.setVolume(0.1);
+    media.play();
+}
+
+function playRemoteFile() {
+	var media = new Media("http://SERVER_IP:PORT/media/test.mp3");
+	media.setVolume(0.1);
+    media.play();
+}
+
+function getMediaURL(s) {
+    if(device.platform.toLowerCase() === "android") return "/android_asset/www/" + s;
+    return s;
+}
+
+function mediaError(e) {
+    alert('Media Error');
+    alert(JSON.stringify(e));
+}
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -34,8 +73,8 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        let bgMusic = loadSound('/android_asset/www/img/sun-rap.mp3',succCallBack,errorCallBack,whileLoading);
-        bgMusic.play();
+        // let bgMusic = loadSound('/android_asset/www/img/sun-rap.mp3',succCallBack,errorCallBack,whileLoading);
+        // bgMusic.play();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {

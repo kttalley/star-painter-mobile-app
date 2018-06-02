@@ -1,0 +1,57 @@
+{
+  "_from": "cordova-allow-background-audio",
+  "_id": "cordova-allow-background-audio@1.0.2",
+  "_inBundle": false,
+  "_integrity": "sha512-5QzEY/rMJkGBmLlitpZEJ+yEW35LjR8rKuh4/5npyYirqGmOqJXK412Hx6Ewz4+wL32ja8ZqBl9xbMD7kwg9nA==",
+  "_location": "/cordova-allow-background-audio",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-allow-background-audio",
+    "name": "cordova-allow-background-audio",
+    "escapedName": "cordova-allow-background-audio",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-allow-background-audio/-/cordova-allow-background-audio-1.0.2.tgz",
+  "_shasum": "53f5cca018079dfea8606031b2fe86d77b2dcddf",
+  "_spec": "cordova-allow-background-audio",
+  "_where": "/media/ktt/New Volume/Programming Projects personal/2018/star-painter-sandbox-app/star-painter-sandbox-app",
+  "bugs": {
+    "url": "https://github.com/davidfig/cordova-allow-background-audio/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-allow-background-audio",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "\n\t\tAllow background Audio for iOS\n\n\t\tWhen included within a cordova/phonegap build then the application will allow background audio to continue to play for iOS\n\t\tout of the box. No further action is necessary.\n\n\t\tThis negates having to use location/other solutions that may not be accepted by Apple.\n\t",
+  "homepage": "https://github.com/davidfig/cordova-allow-background-audio#readme",
+  "keywords": [
+    "cordova",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "phonegap",
+    "background-audio",
+    "background",
+    "audio",
+    "media",
+    "ios"
+  ],
+  "license": "MIT",
+  "name": "cordova-allow-background-audio",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidfig/cordova-allow-background-audio.git"
+  },
+  "version": "1.0.2"
+}

@@ -87,7 +87,7 @@ let attr = false;
 
 
         let grav;
-        let bgMusic;
+        // let bgMusic;
         function succCallBack(){
             console.log("success!");
         }
@@ -132,10 +132,10 @@ let attr = false;
 
 
         function preload(){
-            bgMusic = loadSound('img/sun-rap.mp3',succCallBack,errorCallBack,whileLoading);
+            // bgMusic = loadSound('img/sun-rap.mp3',succCallBack,errorCallBack,whileLoading);
         }
         function setup () {
-            bgMusic.play();
+            // bgMusic.play();
             createCanvas(window.innerWidth-5,window.innerHeight -5, P2D);
             angleMode(DEGREES); 
             background(0);

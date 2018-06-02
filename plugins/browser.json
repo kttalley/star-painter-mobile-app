@@ -39,6 +39,9 @@
     },
     "cordova-plugin-nativeaudio": {
       "PACKAGE_NAME": "com.phonegap.helloworld"
+    },
+    "cordova-allow-background-audio": {
+      "PACKAGE_NAME": "com.phonegap.helloworld"
     }
   },
   "dependent_plugins": {

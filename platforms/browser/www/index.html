@@ -52,11 +52,22 @@
             margin: 0;
             background-color: black;
         }
+        #bgMusic{
+            background-color: black;
+            position: absolute;
+            content: relative;
+        }
     </style>
     <title>StarPainter</title>
 </head>
 
 <body id = "myContent">
+        <audio id="bgMusic" controls autoplay loop>
+                <source
+                    type="audio/mpeg"
+                    src="img/sun-rap.mp3"/>
+                    Your browser does not support the <code>audio</code> element.
+                </audio>
     <div id="p5Container"></div>
 
 

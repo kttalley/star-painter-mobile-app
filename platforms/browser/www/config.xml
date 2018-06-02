@@ -19,5 +19,5 @@
     <preference name="BackgroundColor" value="0" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="Orientation" value="portrait" />
-    <preference name="android-minSdkVersion" value="26" />
+    <preference name="android-minSdkVersion" value="24" />
 </widget>

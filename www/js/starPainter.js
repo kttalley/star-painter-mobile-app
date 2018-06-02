@@ -87,8 +87,12 @@ let attr = false;
 
 
         let grav;
-
+        let bgMusic;
+        function preload(){
+            bgMusic = loadSound('img/sun-rap.mp3');
+        }
         function setup () {
+            bgMusic.play();
             createCanvas(window.innerWidth-5,window.innerHeight -5, P2D);
             angleMode(DEGREES); 
             background(0);
@@ -175,6 +179,7 @@ let attr = false;
 
         let starBrush = true;
         let starCap = 100;
+        
         function draw () {
             // background(0);
             // fill(255);

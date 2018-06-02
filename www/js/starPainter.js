@@ -152,7 +152,7 @@ let attr = false;
 
         let reset = false;
         function resetButton () {
-            if( dist( window.innerWidth/4, window.innerHeight-100, pmouseX,pmouseY) < 100){
+            if( dist( window.innerWidth/2.5, window.innerHeight-100, pmouseX,pmouseY) < 60){
                 reset = true;
             }
             if(reset === true){
@@ -162,18 +162,31 @@ let attr = false;
                     reset = false;
                 }
             }
-            fill(200);
-            rect(window.innerWidth/4, window.innerHeight-100, 65,65);
+            stroke(255);
+            noFill();
+            rectMode(CENTER);
+            rect(window.innerWidth/2.5, window.innerHeight-100, 60,60);
+            noStroke();
+            textSize(12);
+            fill(255);
+            text("Reset", (window.innerWidth/2.5)-15, window.innerHeight-50);
+            noFill();
         }
         let freeze = false;
         function freezeButton() {
-           fill(0,0,255);
+        //    fill(0,0,255);
+        stroke(160,160,255);
            if(freeze === true){
-               fill(10,150,255);
-           }
+            stroke(random(10),random(150),random(190,255))                  
+        }
                   
-            triangle(window.innerWidth-70, window.innerHeight-200, window.innerWidth-10, window.innerHeight-200,window.innerWidth-40, window.innerHeight-260);
-            if( dist( window.innerWidth-70, window.innerHeight-200, pmouseX,pmouseY) < 100){
+            triangle((window.innerWidth/4)-60, window.innerHeight-160, (window.innerWidth/4), window.innerHeight-160,(window.innerWidth/4)-30, window.innerHeight-220);
+            fill(160,160,255);
+            noStroke();
+            textSize(12);
+            text("Freeze", (window.innerWidth/4) - 50, window.innerHeight-140);
+            noFill();
+            if( dist( (window.innerWidth/4), window.innerHeight-200, pmouseX,pmouseY) < 40){
                 if(freeze === false){
                     freeze = true;
                 }
@@ -189,14 +202,21 @@ let attr = false;
     }
 
         function attrButton () {
+            let focus = 75;
             if(attr === true){
-                fill(250,0,0);
+                stroke(random(190,255),random(200),random(190,255));
+                // ellipse(window.innerWidth-100, window.innerHeight-100, 70,70);
             }else{
-                fill(200,200,200)
+                stroke(220,175,200)
             }
 
+            // noStroke();
+            ellipse(window.innerWidth-100, window.innerHeight-100, focus,focus);
             noStroke();
-            ellipse(window.innerWidth-100, window.innerHeight-100, 65,65);
+            fill(220,175,200);
+            textSize(12);
+            text("Orbit Release", window.innerWidth-130, window.innerHeight-40);
+            noFill();
             if( dist( window.innerWidth-100, window.innerHeight-100, pmouseX,pmouseY) < 100){
                 if (attr = false){
                     attr = true;
@@ -221,9 +241,10 @@ let attr = false;
         // }
 
         let starBrush = true;
-        let starCap = 100;
+        let starCap = 50;
         
         function draw () {
+            
             // background(0);
             // fill(255);
             // textSize(12);
@@ -287,16 +308,21 @@ let attr = false;
                 if(key == 'd'&&keyIsPressed){
                     particles[i].length = particles[i].length-1;
                 }    
-                let starCount = particles.length;
-                textSize(16);
-                fill(0);
-                noStroke();
-                rect(180,85,25,20);
-                fill(255);
-
-                text("Star Count: "+starCount,100,100);
             }
+            let starCount = particles.length;
+            
             resetButton();
             attrButton();
             freezeButton();
+            textSize(16);
+            fill(0);
+            noStroke();
+            rectMode(CORNER);
+            rect(355,10,25,20);
+            fill(255);
+            text("Star Count: "+starCount,280, 25);
+            text("Swipe to paint stars. ",50,25);
+            text("They orbit the last place your touch was detected.",30,55);
+
+            // text("Use the buttons below to freeze or remove the attractor.",50,window.innerHeight-100);
         }

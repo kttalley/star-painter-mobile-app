@@ -404,6 +404,15 @@ module.exports = [
             "navigator.notification",
             "navigator"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-nativeaudio/www/nativeaudio-browser.js",
+        "id": "cordova-plugin-nativeaudio.NativeAudioBrowser",
+        "pluginId": "cordova-plugin-nativeaudio",
+        "clobbers": [
+            "cordova.plugins.NativeAudio",
+            "plugins.NativeAudio"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -420,7 +429,8 @@ module.exports.metadata =
     "cordova-plugin-globalization": "1.0.9",
     "cordova-plugin-inappbrowser": "1.7.2",
     "cordova-plugin-network-information": "1.3.4",
-    "cordova-plugin-vibration": "2.1.6"
+    "cordova-plugin-vibration": "2.1.6",
+    "cordova-plugin-nativeaudio": "3.0.9"
 }
 // BOTTOM OF METADATA
 });

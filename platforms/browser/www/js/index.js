@@ -34,6 +34,8 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        let bgMusic = loadSound('/android_asset/www/img/sun-rap.mp3',succCallBack,errorCallBack,whileLoading);
+        bgMusic.play();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {

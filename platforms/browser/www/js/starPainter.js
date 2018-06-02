@@ -88,8 +88,51 @@ let attr = false;
 
         let grav;
         let bgMusic;
+        function succCallBack(){
+            console.log("success!");
+        }
+        function errorCallBack(){
+            console.log("error!");
+        }
+        function whileLoading(){
+            console.log("loading");
+        }
+        // if( window.plugins && window.plugins.NativeAudio ) {
+    
+        //     // Preload audio resources
+        //     window.plugins.NativeAudio.preloadComplex( 'music', 'img/sun-rap.mp3', 1, 1, 0, function(msg){
+        //     }, function(msg){
+        //         console.log( 'error: ' + msg );
+        //     });
+            
+        //     // window.plugins.NativeAudio.preloadSimple( 'click', 'audio/click.mp3', function(msg){
+        //     // }, function(msg){
+        //         // console.log( 'error: ' + msg );
+        //     // });
+         
+         
+        //     // Play
+        //     // window.plugins.NativeAudio.play( 'click' );
+        //     window.plugins.NativeAudio.loop( 'music' );
+         
+         
+        //     // Stop multichannel clip after 60 seconds
+        //     window.setTimeout( function(){
+         
+        //         window.plugins.NativeAudio.stop( 'music' );
+                    
+        //         window.plugins.NativeAudio.unload( 'music' );
+        //         // window.plugins.NativeAudio.unload( 'click' );
+         
+        //     }, 1000 * 60 );
+        // }
+
+
+
+
+
         function preload(){
-            bgMusic = loadSound('img/sun-rap.mp3');
+            bgMusic = loadSound('img/sun-rap.mp3',succCallBack,errorCallBack,whileLoading);
         }
         function setup () {
             bgMusic.play();

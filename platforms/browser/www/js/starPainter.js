@@ -100,23 +100,81 @@ let attr = false;
             attr = true;
         }
 
-        function brushButton () {
+        
+
+
+        let reset = false;
+        function resetButton () {
+            if( dist( window.innerWidth/4, window.innerHeight-100, pmouseX,pmouseY) < 100){
+                reset = true;
+            }
+            if(reset === true){
+                particles = [];
+                background(0);
+                if(mouseIsPressed){
+                    reset = false;
+                }
+            }
+            fill(200);
+            rect(window.innerWidth/4, window.innerHeight-100, 65,65);
+        }
+        let freeze = false;
+        function freezeButton() {
+           fill(0,0,255);
+           if(freeze === true){
+               fill(10,150,255);
+           }
+                  
+            triangle(window.innerWidth-70, window.innerHeight-200, window.innerWidth-10, window.innerHeight-200,window.innerWidth-40, window.innerHeight-260);
+            if( dist( window.innerWidth-70, window.innerHeight-200, pmouseX,pmouseY) < 100){
+                if(freeze === false){
+                    freeze = true;
+                }
+                
+                
+            
+        }
+        if(freeze === true){
+            if(mouseIsPressed){
+                freeze = false;
+            }
+        }
+    }
+
+        function attrButton () {
+            if(attr === true){
+                fill(250,0,0);
+            }else{
+                fill(200,200,200)
+            }
+
+            noStroke();
+            ellipse(window.innerWidth-100, window.innerHeight-100, 65,65);
+            if( dist( window.innerWidth-100, window.innerHeight-100, pmouseX,pmouseY) < 100){
+                if (attr = false){
+                    attr = true;
+                }else{
+                    attr = false;
+                }
+            }
 
         }
-        function touchEnded() {
-            if(starBrush === true){
-                starBrush = false;
-            }else{
-                starBrush = true;
-            }
-            if(starBrush === false){
-                starBrush = true;
-            }else{
-                starBrush = false;
-            }
-        }
+
+        // function touchEnded() {
+        //     if(starBrush === true){
+        //         starBrush = false;
+        //     }else{
+        //         starBrush = true;
+        //     }
+        //     if(starBrush === false){
+        //         starBrush = true;
+        //     }else{
+        //         starBrush = false;
+        //     }
+        // }
 
         let starBrush = true;
+        let starCap = 100;
         function draw () {
             // background(0);
             // fill(255);
@@ -141,18 +199,22 @@ let attr = false;
             //     }
                 
             // }
-            fill(200);
-            rect(window.innerWidth/4, window.innerHeight-100, 150,50);
+            
 
 
 
-            if(touchEnded && starBrush === true){
-                particles.push(new particle(mouseX, mouseY, random(0.01,0.5),random(45)));
+            if(mouseIsPressed && starBrush === true){
+                particles.push(new particle(pmouseX, pmouseY, random(0.01,0.5),random(45)));
             }
             for ( var i = 0; i < particles.length; i++){
-                if(particles.length > 100){
-                    particles.length = 100;
-                }
+                // if(particles[i].length > 100){
+                    while(particles.length > starCap){
+                        particles.pop();
+                    }
+                    // particles[i].length = 100;
+                // }
+                
+        
                 
                 
                 particles[i].display();
@@ -169,12 +231,24 @@ let attr = false;
                 //     noFill();
                 //     ellipse(mouseX,mouseY+5,25,25);
                 // }
-                if(key == 'x'&&keyIsPressed){
+                
+                if(freeze === true){
                     particles[i].vel.set(0);
                     particles[i].acc.set(0);
                 }
                 if(key == 'd'&&keyIsPressed){
                     particles[i].length = particles[i].length-1;
                 }    
+                let starCount = particles.length;
+                textSize(16);
+                fill(0);
+                noStroke();
+                rect(180,85,25,20);
+                fill(255);
+
+                text("Star Count: "+starCount,100,100);
             }
+            resetButton();
+            attrButton();
+            freezeButton();
         }

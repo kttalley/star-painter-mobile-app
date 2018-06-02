@@ -27,7 +27,13 @@ let attr = false;
                 // fill(255,105-glow);
                 // rect(0,0,10-glow,10-glow);               
                 // resetMatrix();
-                stroke(255);
+                stroke(255,10-glow);
+                strokeWeight(3);
+                point(this.pos.x,this.pos.y);
+                stroke(255,20+glow);
+                strokeWeight(2);
+                point(this.pos.x,this.pos.y);
+                stroke(255,50);
                 strokeWeight(1);
                 point(this.pos.x,this.pos.y);
             };
@@ -83,7 +89,7 @@ let attr = false;
         let grav;
 
         function setup () {
-            createCanvas(window.windowWidth, window.windowHeight, P2D);
+            createCanvas(window.innerWidth-5,window.innerHeight -5, P2D);
             angleMode(DEGREES); 
             background(0);
             stroke(255);
@@ -94,15 +100,32 @@ let attr = false;
             attr = true;
         }
 
+        function brushButton () {
+
+        }
+        function touchEnded() {
+            if(starBrush === true){
+                starBrush = false;
+            }else{
+                starBrush = true;
+            }
+            if(starBrush === false){
+                starBrush = true;
+            }else{
+                starBrush = false;
+            }
+        }
+
+        let starBrush = true;
         function draw () {
             // background(0);
-            fill(255);
-            textSize(12);
-            noStroke();
-            text("Click to draw stars",50,50);
-            text("Press A to create a black hole at your cursor's location",50,80);
-            text("Press S to stop the black hole",50,110);
-            text("Press X to freeze the physics engine",50,140);
+            // fill(255);
+            // textSize(12);
+            // noStroke();
+            // text("Click to draw stars",50,50);
+            // text("Press A to create a black hole at your cursor's location",50,80);
+            // text("Press S to stop the black hole",50,110);
+            // text("Press X to freeze the physics engine",50,140);
             // if(key == 'a'&&keyIsPressed){
             //     attr = true;
             // }
@@ -118,12 +141,12 @@ let attr = false;
             //     }
                 
             // }
-            fill(255);
-            rect(50,100,50,50);
+            fill(200);
+            rect(window.innerWidth/4, window.innerHeight-100, 150,50);
 
 
 
-            if(mouseIsPressed){
+            if(touchEnded && starBrush === true){
                 particles.push(new particle(mouseX, mouseY, random(0.01,0.5),random(45)));
             }
             for ( var i = 0; i < particles.length; i++){

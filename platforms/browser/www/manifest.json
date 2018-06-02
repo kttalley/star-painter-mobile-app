@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "StarPainter",
+  "short_name": "StarPainter",
+  "version": "com.phonegap.helloworld",
+  "description": "Interactive physics sandbox and art application.",
+  "author": "KTT",
+  "icons": [],
+  "start_url": "index.html"
+}

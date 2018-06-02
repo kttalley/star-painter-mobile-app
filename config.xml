@@ -14,7 +14,7 @@
     <feature name="Media">
         <param name="android-package" value="org.apache.cordova.media.AudioHandler" />
     </feature>
-    <gap:plugin name="org.apache.cordova.media" />
+    <!-- <gap:plugin name="org.apache.cordova.media" /> -->
     <preference name="android-minSdkVersion" value="26" />
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.2.4" />
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.4.1" />
